@@ -119,3 +119,6 @@ Handles JSON POST requests with a question field.
 
 Returns the LLM-generated answer.
 
+
+Resolved runtime crash caused by installing GPU-enabled PyTorch on a CPU-only system, which triggered Triton import errors.
+Switched to CPU-only PyTorch to remove CUDA/Triton dependencies and restore compatibility.
