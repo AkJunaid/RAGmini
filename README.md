@@ -120,7 +120,7 @@ Handles JSON POST requests with a question field.
 Returns the LLM-generated answer.
 
 
-## the big problem i faced and solved at 5:02pm
+## the big problem i faced at 2:45 and solved at 5:02pm
 The issue arises from a dependency mismatch between the transformers, torch, and triton packages in the Python environment.
 
 Root Cause
