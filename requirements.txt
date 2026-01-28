@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+pydantic
+chromadb
+sentence-transformers
+transformers>=5.0.0
+torch>=2.5.0
+accelerate>=1.12.0
+pypdf
+langchain
