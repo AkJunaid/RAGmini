@@ -1,22 +1,35 @@
-PDF QA API with LangChain, BGE-M3 Embeddings & FastAPI
+## PDF QA API with LangChain, BGE-M3 Embeddings & FastAPI
 
 This project is a PDF Question-Answering API built with FastAPI, LangChain, Hugging Face Transformers, and Chroma vector store. It uses the BGE-M3 model for embeddings and FLAN-T5 for generating answers.
 
 Project Structure
-pdf_qa_project/
-├─ app/
-│  ├─ __init__.py          # Package marker
-│  ├─ main.py              # FastAPI application
-│  ├─ qa_system.py         # QA pipeline logic using LLM and retriever
-│  ├─ embeddings.py        # Embedding wrapper for BGE-M3
-│  └─ vectorstore.py       # Vector store creation and retrieval
-├─ data/
-│  └─ Attention_Is_All_You_Need.pdf  # Sample PDF
-├─ chroma_db/              # Persisted Chroma vector store (auto-generated)
-├─ requirements.txt
-└─ README.md
 
-Setup & Installation
+
+pdf_qa_project/
+
+├─ app/ 
+
+│  ├─ __init__.py          # Marks the app directory as a Python package 
+
+│  ├─ main.py              # FastAPI entry point and API routes 
+
+│  ├─ qa_system.py         # RetrievalQA pipeline (LLM + retriever) 
+
+│  ├─ embeddings.py        # BGE-M3 embedding implementation 
+
+│  └─ vectorstore.py       # PDF loading, chunking, and Chroma vector store 
+
+├─ Attention Is All You Need.pdf   # Source PDF document 
+
+├─ chroma_db/              # Persisted Chroma vector database (auto-generated) 
+
+├─ requirements.txt        # Project dependencies 
+
+└─ README.md               # Project documentation 
+
+
+
+# Setup & Installation
 
 Clone the repository
 
@@ -31,7 +44,7 @@ source venv/bin/activate  # Linux/Mac
 venv\Scripts\activate     # Windows
 
 
-Install dependencies
+# Install dependencies
 
 pip install -r requirements.txt
 
@@ -73,7 +86,7 @@ You can also access the interactive Swagger UI at:
 
 http://127.0.0.1:8000/docs
 
-Key Components
+# Key Components
 1. Embeddings
 
 Uses BGE-M3 model for embedding PDF text chunks.
@@ -105,39 +118,6 @@ Single endpoint /ask/ to query the PDF.
 Handles JSON POST requests with a question field.
 
 Returns the LLM-generated answer.
-
-Dependencies
-
-fastapi==0.109.1
-
-uvicorn==0.25.0
-
-torch>=2.1.0
-
-transformers>=4.40.0
-
-langchain>=0.1.0
-
-langchain_community>=0.0.5 (for Chroma & PyPDFLoader)
-
-chromadb>=0.4.0
-
-Notes & Warnings
-
-LangChain deprecation:
-Chroma and PyPDFLoader were moved to langchain_community.
-Ensure imports are:
-
-from langchain_community.vectorstores import Chroma
-from langchain_community.document_loaders import PyPDFLoader
-
-
-Hugging Face rate limits:
-Using unauthenticated requests may be slow or rate-limited.
-Set a HF token to avoid this.
-
-Model download:
-BGE-M3 is ~2.3GB, download may take time depending on network speed.
 
 
 ## the big problem i faced and solved at 5:02pm
